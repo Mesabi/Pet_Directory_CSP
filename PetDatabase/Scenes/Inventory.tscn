@@ -1,0 +1,195 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Button.png" type="Texture" id=3]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Pet_Count" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 431.0
+margin_top = 2.0
+margin_right = 599.0
+margin_bottom = 158.0
+rect_scale = Vector2( 1.40712, 0.710221 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Pet_Count_Text" type="Label" parent="Pet_Count"]
+margin_left = 70.3566
+margin_top = 83.0727
+margin_right = 171.357
+margin_bottom = 182.073
+rect_scale = Vector2( 1.54894, 1.53814 )
+text = "0
+"
+
+[node name="Static_Label" type="Label" parent="Pet_Count"]
+margin_left = 38.3763
+margin_top = 26.7522
+margin_right = 113.376
+margin_bottom = 40.7522
+rect_scale = Vector2( 1.14293, 2.15294 )
+text = "Found Pets:"
+
+[node name="Work_Tab" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -2.0
+margin_right = 170.0
+margin_bottom = 154.0
+rect_scale = Vector2( 1.78301, 1.57862 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="SearchBox" type="TextEdit" parent="Work_Tab"]
+margin_left = 26.3599
+margin_top = 42.442
+margin_right = 127.36
+margin_bottom = 141.442
+rect_scale = Vector2( 1.13823, 0.597053 )
+
+[node name="Label" type="Label" parent="Work_Tab"]
+margin_left = 34.2118
+margin_top = 25.3385
+margin_right = 133.212
+margin_bottom = 39.3385
+text = "Search for Pets!"
+
+[node name="Age_Search" type="Button" parent="Work_Tab"]
+margin_left = 5.04764
+margin_top = 158.366
+margin_right = 61.0476
+margin_bottom = 208.366
+rect_scale = Vector2( 1.1056, 1.1626 )
+expand_icon = true
+
+[node name="Sprite" type="Sprite" parent="Work_Tab/Age_Search"]
+position = Vector2( 28.0424, 26.6055 )
+scale = Vector2( 1.9587, 1.85215 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Work_Tab/Age_Search"]
+margin_left = 7.89921
+margin_top = 9.7515
+margin_right = 49.8992
+margin_bottom = 40.7515
+text = "Age
+Search"
+align = 1
+
+[node name="Name_Search" type="Button" parent="Work_Tab"]
+margin_left = 89.1749
+margin_top = 156.465
+margin_right = 145.175
+margin_bottom = 206.465
+rect_scale = Vector2( 1.18899, 1.19062 )
+expand_icon = true
+
+[node name="Sprite" type="Sprite" parent="Work_Tab/Name_Search"]
+position = Vector2( 28.0424, 26.6055 )
+scale = Vector2( 1.9587, 1.85215 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Work_Tab/Name_Search"]
+margin_left = 7.61243
+margin_top = 10.9269
+margin_right = 49.6124
+margin_bottom = 41.9269
+text = "Name
+Search"
+valign = 1
+
+[node name="Pet_Forge" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 788.0
+margin_top = 6.0
+margin_right = 956.0
+margin_bottom = 162.0
+rect_scale = Vector2( 1.38373, 1.29153 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Title" type="Label" parent="Pet_Forge"]
+margin_left = 34.2118
+margin_top = 25.3385
+margin_right = 133.212
+margin_bottom = 39.3385
+text = "Create a Pet!"
+
+[node name="Name" type="Label" parent="Pet_Forge"]
+margin_left = 20.1906
+margin_top = 50.6771
+margin_right = 119.191
+margin_bottom = 64.6771
+text = "Name:"
+
+[node name="Age" type="Label" parent="Pet_Forge"]
+margin_left = 22.434
+margin_top = 96.2864
+margin_right = 121.434
+margin_bottom = 110.286
+text = "Age:"
+
+[node name="Create_Button" type="Button" parent="Pet_Forge"]
+margin_left = 39.8203
+margin_top = 165.967
+margin_right = 51.8203
+margin_bottom = 185.967
+rect_scale = Vector2( 7.77505, 1 )
+
+[node name="Sprite" type="Sprite" parent="Pet_Forge/Create_Button"]
+position = Vector2( 5.91502, 15.8365 )
+scale = Vector2( 0.511852, -1.43457 )
+texture = ExtResource( 3 )
+
+[node name="Create" type="Label" parent="Pet_Forge/Create_Button"]
+margin_left = 0.144272
+margin_top = 3.16731
+margin_right = 41.1443
+margin_bottom = 17.1673
+rect_scale = Vector2( 0.284139, 1.90023 )
+text = "Create"
+
+[node name="Age_Text" type="TextEdit" parent="Pet_Forge"]
+margin_left = 62.2931
+margin_top = 96.3145
+margin_right = 102.293
+margin_bottom = 136.314
+rect_scale = Vector2( 1.92831, 0.94267 )
+text = "100"
+
+[node name="Name_Text" type="TextEdit" parent="Pet_Forge"]
+margin_left = 63.5473
+margin_top = 50.9307
+margin_right = 103.547
+margin_bottom = 90.9307
+rect_scale = Vector2( 1.92837, 0.884226 )
+text = "100"
+
+[node name="Error_Log" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 775.0
+margin_top = 485.0
+margin_right = 943.0
+margin_bottom = 641.0
+rect_scale = Vector2( 1.40712, 0.710221 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Error_Output" type="Label" parent="Error_Log"]
+margin_left = 21.3202
+margin_top = 26.7523
+margin_right = 96.3202
+margin_bottom = 40.7523
+rect_scale = Vector2( 1.70447, 7.03136 )
+
+[connection signal="pressed" from="Work_Tab/Age_Search" to="." method="_on_Age_Search_pressed"]
+[connection signal="pressed" from="Work_Tab/Name_Search" to="." method="_on_Name_Search_pressed"]
+[connection signal="pressed" from="Pet_Forge/Create_Button" to="." method="_on_Create_Button_pressed"]
