@@ -64,7 +64,7 @@ position = Vector2( 826, 205 )
 position = Vector2( 567, 409 )
 
 [node name="Selection_Marker" type="Node2D" parent="Waypoint_Manager"]
-position = Vector2( 567, 117 )
+position = Vector2( 562, 206 )
 
 [node name="Exit_Marker" type="Node2D" parent="Waypoint_Manager"]
 position = Vector2( 1134, 234 )

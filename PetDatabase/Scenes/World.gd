@@ -37,29 +37,67 @@ func make_new_Pet():
 	count += 1
 
 
+func editSelected():
+	SelectedPets[0].queue_free()
+	SelectedPets[0] = create_new_Pet(inventory.pet_summon)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	SelectedPets.clear()
+	resetArrays()
+	inventory.selectionCount.text = String(SelectedPets.size())
+	inventory.errorLog.text = inventory.errorText
 	if(inventory.searching == true):
+		deselectPets()
+		SelectedPets.clear()
 		do_search()
 	if(inventory.newPetCreated == true):
 		#fix later
 		create_new_Pet(inventory.pet_summon)
 		inventory.newPetCreated = false
+	if(inventory.editPet == true):
+		editSelected()
+		inventory.editPet = false
+	if(inventory.banishPet == true):
+		if(SelectedPets.size()>0):
+			SelectedPets[0].queue_free()
+		SelectedPets.clear()
+		inventory.banishPet = false
+		
+		
+func resetArrays():
+	#resets the pets array, to prevent errors
+	Pets.clear()
+	var world = self.get_children()
+	for obj in world:
+		if obj is KinematicBody2D:
+			Pets.append(obj)
 
 func create_new_Pet(petData):
 	var pet = newPet.instance()
 	add_child(pet)
-	print(petData.size())
+	var placeHere = places.get_child(0).global_position
+	if(inventory.editPet == true):# places it in the selection box if this is an edit.
+		placeHere = places.get_child(1).global_position
 	#pet.position = places.get_child(3).position
-	pet.set_me_up(petData[0],petData[1],petData[2],petData[3], places.get_child(0).global_position)
+	pet.set_me_up(petData[0],petData[1],petData[2],petData[3], placeHere)
 	
 	Pets.append(pet)
 	count += 1
 
 
+func deselectPets():
+	if(SelectedPets.size() > 0):
+		for pet in SelectedPets:
+			pet.myPlace = places.get_child(0).global_position
+	else:
+		pass
+
+
+
 func do_search():
-	SelectedPets.clear()
+	#searches for a pet either by age or name
+	#misses out on the criteria for case
 	if(inventory.ageSearch == true):
 			for pet in Pets:
 				#tries to cast myText as an int, will fail if not an int. 
@@ -70,7 +108,7 @@ func do_search():
 					SelectedPets.append(pet)
 	else:
 		for pet in Pets:
-							#tries to cast myText as an int, will fail if not an int. 
+			#tries to cast myText as an int, will fail if not an int. 
 			if(pet.petName == inventory.myText):
 				print("found!")
 				pet.go_here(places.get_child(1).global_position)
