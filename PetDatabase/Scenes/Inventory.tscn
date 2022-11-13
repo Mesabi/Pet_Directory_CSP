@@ -35,6 +35,26 @@ margin_bottom = 40.7522
 rect_scale = Vector2( 1.14293, 2.15294 )
 text = "Found Pets:"
 
+[node name="Banish_Button" type="Button" parent="Pet_Count"]
+margin_left = 39.8203
+margin_top = 165.967
+margin_right = 51.8203
+margin_bottom = 185.967
+rect_scale = Vector2( 7.77505, 1.69334 )
+
+[node name="Sprite" type="Sprite" parent="Pet_Count/Banish_Button"]
+position = Vector2( 5.91502, 15.8365 )
+scale = Vector2( 0.511852, -1.43457 )
+texture = ExtResource( 3 )
+
+[node name="Banish" type="Label" parent="Pet_Count/Banish_Button"]
+margin_left = 0.144272
+margin_top = 3.16731
+margin_right = 41.1443
+margin_bottom = 17.1673
+rect_scale = Vector2( 0.284139, 1.90023 )
+text = "Banish"
+
 [node name="Work_Tab" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -156,6 +176,26 @@ margin_bottom = 17.1673
 rect_scale = Vector2( 0.284139, 1.90023 )
 text = "Create"
 
+[node name="Edit_Button" type="Button" parent="Pet_Forge"]
+margin_left = 39.7475
+margin_top = 213.701
+margin_right = 51.7475
+margin_bottom = 233.701
+rect_scale = Vector2( 7.78481, 1 )
+
+[node name="Sprite" type="Sprite" parent="Pet_Forge/Edit_Button"]
+position = Vector2( 5.91502, 15.8365 )
+scale = Vector2( 0.511852, -1.43457 )
+texture = ExtResource( 3 )
+
+[node name="Create" type="Label" parent="Pet_Forge/Edit_Button"]
+margin_left = 0.144272
+margin_top = 3.16731
+margin_right = 41.1443
+margin_bottom = 17.1673
+rect_scale = Vector2( 0.137981, 1.74562 )
+text = "Edit Selected"
+
 [node name="Age_Text" type="TextEdit" parent="Pet_Forge"]
 margin_left = 62.2931
 margin_top = 96.3145
@@ -190,6 +230,28 @@ margin_right = 96.3202
 margin_bottom = 40.7523
 rect_scale = Vector2( 1.70447, 7.03136 )
 
+[node name="Save_Button" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 530.0
+margin_right = 32.0
+margin_bottom = 550.0
+rect_scale = Vector2( 7.77505, 1.69334 )
+
+[node name="Sprite" type="Sprite" parent="Save_Button"]
+position = Vector2( 5.91502, 15.8365 )
+scale = Vector2( 0.511852, -1.43457 )
+texture = ExtResource( 3 )
+
+[node name="Save_Text" type="Label" parent="Save_Button"]
+margin_left = 0.900316
+margin_top = 2.95274
+margin_right = 41.9003
+margin_bottom = 16.9527
+rect_scale = Vector2( 0.284139, 1.90023 )
+text = "Save"
+
+[connection signal="pressed" from="Pet_Count/Banish_Button" to="." method="_on_Banish_Button_pressed"]
 [connection signal="pressed" from="Work_Tab/Age_Search" to="." method="_on_Age_Search_pressed"]
 [connection signal="pressed" from="Work_Tab/Name_Search" to="." method="_on_Name_Search_pressed"]
 [connection signal="pressed" from="Pet_Forge/Create_Button" to="." method="_on_Create_Button_pressed"]
+[connection signal="pressed" from="Pet_Forge/Edit_Button" to="." method="_on_Edit_Button_pressed"]

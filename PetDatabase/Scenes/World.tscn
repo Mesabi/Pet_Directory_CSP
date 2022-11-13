@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Grass.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Fence.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pet_Creator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Yard.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,6 +14,9 @@ script = ExtResource( 1 )
 position = Vector2( 493, 311 )
 scale = Vector2( 33.2061, 17.2739 )
 texture = ExtResource( 2 )
+
+[node name="Pet_Creator" parent="." instance=ExtResource( 5 )]
+position = Vector2( 39, 381 )
 
 [node name="Pet_Zone" type="Node2D" parent="."]
 
@@ -64,10 +69,13 @@ position = Vector2( 826, 205 )
 position = Vector2( 567, 409 )
 
 [node name="Selection_Marker" type="Node2D" parent="Waypoint_Manager"]
-position = Vector2( 567, 117 )
+position = Vector2( 562, 206 )
 
 [node name="Exit_Marker" type="Node2D" parent="Waypoint_Manager"]
 position = Vector2( 1134, 234 )
 
 [node name="Enterance_Marker" type="Node2D" parent="Waypoint_Manager"]
 position = Vector2( -172, 391 )
+
+[node name="Yard" parent="." instance=ExtResource( 6 )]
+position = Vector2( 617, 430 )
