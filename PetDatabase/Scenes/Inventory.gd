@@ -10,6 +10,7 @@ var ageSearch = false
 var newPetCreated = false
 var editPet = false
 var banishPet = false
+var saveNow = false
 
 onready var petAgeText = $Pet_Forge/Age_Text
 onready var petNameText = $Pet_Forge/Name_Text
@@ -88,4 +89,9 @@ func _on_Edit_Button_pressed():
 
 func _on_Banish_Button_pressed():
 	banishPet = true
+	pass # Replace with function body.
+
+
+func _on_Save_Button_pressed():
+	saveNow = true
 	pass # Replace with function body.

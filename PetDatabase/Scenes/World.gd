@@ -50,7 +50,7 @@ func editSelected():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(Input.is_action_pressed("Test")):
-		pass
+		petCreator.saveFile(Pets)
 	
 	#sees if new pets are added.
 	if self.get_child_count() > childNumDefault:#keeps a default constant to check against
@@ -80,7 +80,9 @@ func _process(delta):
 		SelectedPets.clear()
 		inventory.banishPet = false
 		cleanUp()
-		
+	if(inventory.saveNow == true):
+		petCreator.saveFile(Pets)
+		inventory.saveNow = false
 	
 	
 	

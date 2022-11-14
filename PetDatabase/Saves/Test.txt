@@ -1,0 +1,3 @@
+Bill|red|19
+Ted|antiquewhite|19
+Tom|brown|19

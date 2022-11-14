@@ -4,6 +4,7 @@ extends KinematicBody2D
 var id = -1
 var petName = "basss"
 var petAge = 0
+var color_set = Color.white
 var selected = false
 var myPlace = self.global_position
 var target = self.global_position
@@ -41,7 +42,24 @@ func _process(delta):
 
 
 
-
+func returnInfo():
+	var colorExport
+	match color_set:
+		Color.red:
+			colorExport = "red"
+		Color.rosybrown:
+			colorExport =  "rosybrown"
+		Color.antiquewhite:
+			colorExport = "antiquewhite"
+		Color.coral:
+			colorExport = "coral"
+		Color.gray:
+			colorExport = "gray"
+		Color.brown:
+			colorExport = "brown"
+		_:
+			colorExport = peltColors[rng.randi_range(0,5)]
+	return petName + "|" +colorExport+"|"+ String(petAge)
 
 
 func move_here(here):
@@ -56,8 +74,23 @@ func set_me_up(pid, Pname, age, color, location):
 	petName = Pname
 	petAge = age
 	petLabel.text = str(petName)
-	#could not get Pet Color to work as of now, so just doing it here, from a preselected list. 
-	petSprite.modulate = peltColors[rng.randi_range(0,5)]
+	#Color.red,Color.rosybrown,Color.antiquewhite,Color.coral,Color.gray,Color.brown
+	match color:
+		"red":
+			color_set = Color.red
+		"rosybrown":
+			color_set = Color.rosybrown
+		"antiquewhite":
+			color_set = Color.antiquewhite
+		"coral":
+			color_set = Color.coral
+		"gray":
+			color_set = Color.gray
+		"brown":
+			color_set = Color.brown
+		_:
+			color_set = peltColors[rng.randi_range(0,5)]
+	petSprite.modulate = color_set
 	self.global_position = location
 	myPlace = location
 	go_here(location)

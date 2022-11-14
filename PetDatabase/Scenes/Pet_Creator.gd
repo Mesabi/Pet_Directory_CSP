@@ -33,11 +33,27 @@ func CreateAllFromSave():
 
 func createAPet(line):
 	#creates a pet from a save file line
-	#needs finalization
 	var split = line.split("|")
+	var count = 0
+	#trim empty spaces.
+	for s in split:
+		var str_result = s
+		var unwanted_chars = [".",",",":","?"," "]
+		for c in unwanted_chars:
+			split[count] = str_result.replace(c,"")
+		count += 1
 	var pet = newPet.instance()
 	self.get_parent().add_child(pet)
 	#(pid, Pname, age, color, location)
-	pet.set_me_up(-1, split[0], int(split[1]), "red", self.position)
+	pet.set_me_up(-1, split[0], int(split[2]), split[1], self.position)
 
+
+
+func saveFile(Pets):
+	var fileNew = File.new()
+	fileNew.open(file, File.WRITE)
+	for pet in Pets:
+		fileNew.store_line(pet.returnInfo())
+	fileNew.close()
+	pass
 	

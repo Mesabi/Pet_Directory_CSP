@@ -255,3 +255,4 @@ text = "Save"
 [connection signal="pressed" from="Work_Tab/Name_Search" to="." method="_on_Name_Search_pressed"]
 [connection signal="pressed" from="Pet_Forge/Create_Button" to="." method="_on_Create_Button_pressed"]
 [connection signal="pressed" from="Pet_Forge/Edit_Button" to="." method="_on_Edit_Button_pressed"]
+[connection signal="pressed" from="Save_Button" to="." method="_on_Save_Button_pressed"]
