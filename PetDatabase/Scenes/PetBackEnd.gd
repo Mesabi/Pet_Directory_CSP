@@ -72,7 +72,12 @@ func set_me_up(pid, Pname, age, color, location):
 	#creates a new Pet with an ID, name, age, and location.
 	id = pid
 	petName = Pname
-	petAge = age
+	if(age < 21):
+		petAge = age
+	elif(age < 0):
+		petAge = 0 
+	else:
+		petAge = 20
 	petLabel.text = str(petName)
 	#Color.red,Color.rosybrown,Color.antiquewhite,Color.coral,Color.gray,Color.brown
 	match color:

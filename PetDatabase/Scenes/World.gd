@@ -67,7 +67,8 @@ func _process(delta):
 		cleanUp()
 	if(inventory.newPetCreated == true):
 		#fix later
-		create_new_Pet(inventory.pet_summon)
+		if(Pets.size() < 5):
+			create_new_Pet(inventory.pet_summon)
 		inventory.newPetCreated = false
 		cleanUp()
 	if(inventory.editPet == true):
@@ -92,6 +93,7 @@ func cleanUp():
 	childNum = self.get_child_count()
 
 func collectPets():
+	Pets.clear()
 	#organizes pets in pet array.
 	for child in self.get_children():
 		if child is KinematicBody2D:#for the record, this only works since pets are the only member of this type. 
@@ -100,9 +102,11 @@ func collectPets():
 func organizePets():
 	var amt = 1
 	for pet in Pets:
+		print(pet)
 		if !SelectedPets.has(pet):
+			print(amt)
 			pet.go_here(yard.getPlace(amt))
-			amt += 1
+		amt += 1
 
 		
 func resetArrays():

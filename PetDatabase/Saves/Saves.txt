@@ -1,3 +1,5 @@
-Bill | red | 19
-Ted | white | 19
-Tom | blue | 19
+Ted|antiquewhite|19
+Tom|red|19
+Bill|red|7
+Billie|antiquewhite|7
+Billy|brown|7
